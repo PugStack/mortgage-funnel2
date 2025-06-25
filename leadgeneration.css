@@ -1,0 +1,73 @@
+/* Mortgage Website Styles - leadgeneration.css */
+:root {
+    --primary: #2563eb;
+    --secondary: #0d9488;
+    --accent: #f59e0b;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.section {
+    min-height: 100vh;
+    display: none;
+}
+
+.active-section {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: #e5e7eb;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: width 0.5s ease;
+}
+
+.calendar-day {
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    transform: scale(1.05);
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.tooltip {
+    transition: opacity 0.2s ease;
+}

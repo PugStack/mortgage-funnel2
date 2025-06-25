@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Mortgage-Website/leadgeneration.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

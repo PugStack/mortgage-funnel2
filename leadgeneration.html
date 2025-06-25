@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Pre-Qualification | Find Out How Much You Can Afford</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/Mortgage-Website/leadgeneration.css">
+    <script src="/Mortgage-Website/leadgeneration.js" defer></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0d9488;
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            transition: background 0.3s ease;
+        }
+        
+        .section {
+            min-height: 100vh;
+            display: none;
+        }
+        
+        .active-section {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .form-card {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .form-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #e5e7eb;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.5s ease;
+        }
+        
+        .calendar-day {
+            transition: all 0.2s ease;
+        }
+        
+        .calendar-day:hover {
+            transform: scale(1.05);
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+        
+        .tooltip {
+            transition: opacity 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="landing" class="section active-section">
+        <!-- Header -->
+        <header class="bg-white shadow-sm py-4">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    <span class="font-bold text-xl text-gray-800">HomeLoanPro</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600"><i class="fas fa-shield-alt text-blue-500 mr-1"></i> Secure Application</span>
+                    <span class="hidden md:inline-flex items-center text-sm text-gray-600">
+                        <i class="fas fa-phone-alt text-green-500 mr-1"></i> (555) 123-4567
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="container mx-auto px-6 py-12 md:py-24">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Left Column -->
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <div class="mb-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">No Credit Impact</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Find Out How Much House You Can Afford</h1>
+                    <p class="text-xl text-gray-600 mb-8">Complete our quick form to get pre-qualified for a mortgage with no obligation and no credit check required.</p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-8">
+                        <button onclick="showForm()" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                            <i class="fas fa-check-circle mr-2"></i> Check Your Eligibility Now
+                        </button>
+                        <button onclick="showForm()" class="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition">
+                            <i class="fas fa-file-signature mr-2"></i> Get Pre-Qualified
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 text-gray-500">
+                        <div class="flex items-center">
+                            <i class="fas fa-lock text-green-500 mr-2"></i>
+                            <span>Secure & Confidential</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-500 mr-2"></i>
+                            <span>Takes Only 2 Minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="lg:w-1/2">
+                    <div class="bg-white rounded-xl p-6 form-card">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                                <i class="fas fa-home text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Real Results</h3>
+                                <p class="text-gray-600">Our clients save an average of $37,000 over their loan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-blue-600 mb-2">
+                                    <i class="fas fa-percentage text-xl"></i>
+                                </div>
+                                <h4 class="font-bold">Low Rates</h4>
+                                <p class="text-sm text-gray-600">Lowest rates guaranteed</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-blue-600 mb-2">
+                                    <i class="fas fa-hand-holding-usd text-xl"></i>
+                                </div>
+                                <h4 class="font-bold">$0 Fees</h4>
+                                <p class="text-sm text-gray-600">No application fees</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-blue-600 mb-2">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <h4 class="font-bold">Fast Approval</h4>
+                                <p class="text-sm text-gray-600">Same-day pre-qualification</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-blue-600 mb-2">
+                                    <i class="fas fa-user-shield text-xl"></i>
+                                </div>
+                                <h4 class="font-bold">Expert Advice</h4>
+                                <p class="text-sm text-gray-600">Dedicated loan officer</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-blue-500 text-xl"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-blue-700">Pre-qualification shows how much you may be able to borrow. It's quick, easy, and won't affect your credit score.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Trust Indicators -->
+        <section class="bg-gray-50 py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-2xl font-bold text-gray-800 mb-8">Trusted By Leading Homebuyers</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
+                    <img src="https://via.placeholder.com/150x60?text=Bank+of+A" alt="Bank of America" class="h-12 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x60?text=Wells+Fargo" alt="Wells Fargo" class="h-12 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x60?text=Zillow" alt="Zillow" class="h-12 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x60?text=Realtor.com" alt="Realtor.com" class="h-12 object-contain opacity-80 hover:opacity-100 transition">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-center text-3xl font-bold text-gray-800 mb-12">What Our Clients Say</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 mr-3">
+                                <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M.">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Sarah M.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"The process was incredibly simple and fast. Within minutes I knew exactly what my budget would be when house hunting."</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 mr-3">
+                                <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="James T.">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">James T.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"I was surprised at how much more I qualified for compared to what my bank told me. Definitely recommend!"</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 mr-3">
+                                <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Patricia L.">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Patricia L.</h4>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"Great experience start to finish. The loan officer who contacted me was knowledgeable and helped me understand all my options."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Form Section -->
+    <div id="form" class="section">
+        <div class="container mx-auto px-6 py-12 md:py-16">
+            <button onclick="showLanding()" class="flex items-center text-blue-600 mb-6 hover:text-blue-800 transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium text-gray-900">Step 1 of 2</span>
+                        <span class="text-sm font-medium text-gray-500">Form Completion</span>
+                    </div>
+                    <div class="progress-bar rounded-full overflow-hidden">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 form-card">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Get Your Mortgage Pre-Qualification</h2>
+                    <p class="text-gray-600 mb-6">Complete this quick form to see how much you can afford.</p>
+                    
+                    <form id="mortgageForm" class="space-y-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                   placeholder="John Smith">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                <div class="relative">
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 pr-10" 
+                                           placeholder="you@example.com">
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                <div class="relative">
+                                    <input type="tel" id="phone" name="phone" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 pr-10" 
+                                           placeholder="(555) 123-4567">
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="income" class="block text-sm font-medium text-gray-700 mb-1">Annual Income *</label>
+                            <select id="income" name="income" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                <option value="" disabled selected>Select your income range</option>
+                                <option value="under-50k">Under $50,000</option>
+                                <option value="50k-75k">$50,000 - $75,000</option>
+                                <option value="75k-100k">$75,000 - $100,000</option>
+                                <option value="over-100k">Over $100,000</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="creditScore" class="block text-sm font-medium text-gray-700 mb-1">Credit Score *</label>
+                            <select id="creditScore" name="creditScore" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                <option value="" disabled selected>Select your credit score range</option>
+                                <option value="poor">Poor (300-579)</option>
+                                <option value="fair">Fair (580-669)</option>
+                                <option value="good">Good (670-739)</option>
+                                <option value="excellent">Excellent (740 and above)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="loanAmount" class="block text-sm font-medium text-gray-700 mb-1">Desired Loan Amount *</label>
+                            <input type="number" id="loanAmount" name="loanAmount" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" 
+                                   placeholder="Enter amount in USD" min="10000" step="1000">
+                        </div>
+                        
+                        <div class="flex justify-end space-x-4">
+                            <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg text-lg font-semibold w-full sm:w-auto">
+                                <i class="fas fa-paper-plane mr-2"></i> Get My Results
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Section -->
+    <div id="success" class="section">
+        <div class="container mx-auto px-6 py-12 md:py-16">
+            <div class="max-w-2xl mx-auto text-center">
+                <i class="fas fa-check-circle text-green-500 text-6xl mb-6"></i>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">You're Pre-Qualified!</h2>
+                <p class="text-lg text-gray-600 mb-8">Based on your provided information, you are pre-qualified for a mortgage. A loan officer will contact you shortly to discuss your options.</p>
+                
+                <div class="flex justify-center space-x-4">
+                    <button onclick="showLanding()" class="bg-gray-100 text-gray-800 border border-gray-300 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-200 transition">
+                        <i class="fas fa-home mr-2"></i> Back to Home
+                    </button>
+                    <button onclick="downloadPDF()" class="btn-primary text-white px-6 py-3 rounded-lg text-lg font-semibold">
+                        <i class="fas fa-file-download mr-2"></i> Download Pre-Qualification Letter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-inner py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <span class="text-sm text-gray-500">© 2023 HomeLoanPro. All rights reserved.</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-gray-800 transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
